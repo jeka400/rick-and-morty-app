@@ -6,12 +6,16 @@ const apiClient = axios.create({
 });
 
 
+const fetchCharacters = async (page: number) => {
+    const { data } = await apiClient.get(`/character?page=${page}`);
+    return data;
+  };
+  
 export const useCharacters = (page: number) => {
-    return useQuery(["characters", page]), async () => {
-        const { data } = await apiClient.get(`/character?page=${page}`);
-        return data;
-    }
-}
+    return useQuery(["characters", page], () => fetchCharacters(page), {
+        keepPreviousData: true, 
+    });
+};
 
 export const useCharacter = (id: string | undefined) => {
     return useQuery(["character", id], async () => {
