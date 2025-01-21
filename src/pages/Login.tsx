@@ -3,16 +3,23 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { auth } from "../firebase";
+import { useAuth } from "../context/AuthContext";
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const { setUser } = useAuth()!;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+            setUser(userCredential.user);
+            
+            localStorage.setItem("token", await userCredential.user.getIdToken());
 
         } catch (error) {
             console.error(error);
