@@ -64,7 +64,7 @@ const Characters: React.FC = () => {
         <Container>
             <div className="search-container">
 
-                <h1 className="title-characters text-center">Characters</h1>
+                <h1 className="title-characters text-center mb-4">Characters</h1>
 
                 <Form className="form-search">
                     <div className="search-icon">

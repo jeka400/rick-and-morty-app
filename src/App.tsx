@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import Characters from './pages/Characters';
 import SingleCharacter from './pages/SingleCharacter';
 import SingleLocation from './pages/SingleLocation';
+import SingleEpisode from './pages/SingleEpisode';
 
 const App: React.FC = () => {
   const queryClient = new QueryClient({
@@ -29,7 +30,7 @@ const App: React.FC = () => {
             <Route path='/characters' element={ <Characters /> }/>
             <Route path='/characters/:id' element={ <SingleCharacter /> } />
             <Route path='/location/:id' element={ <SingleLocation /> } />
-            <Route path='/episode/:id' />
+            <Route path='/episode/:id' element={ <SingleEpisode /> } />
           </Routes>
         </Router>
         </QueryClientProvider>

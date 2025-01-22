@@ -1,0 +1,61 @@
+.single-episode-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-episode-name {
+  font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.episode-card {
+  background-color: #f9f9f9 !important;
+  border: none;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto 20px;
+  transition: width 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+  
+.characters-card {
+  background-color: #ffffff;
+  border: none;
+  padding: 20px;
+}
+
+.characters-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.character-card {
+  margin: 10px;
+  width: 18rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}

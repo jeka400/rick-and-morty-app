@@ -34,7 +34,8 @@ const Login: React.FC = () => {
     return (
         <Container>
             <Form onSubmit={ handleSubmit }>
-                <h1 className="mb-5 mt-5 text-center">Login</h1>
+                
+                <h1 className="mb-4 mt-4 text-center">Login</h1>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

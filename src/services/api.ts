@@ -61,11 +61,21 @@ export const useCharactersByIds = (ids: string[]) => {
 };
 
 
-export const useEpisode = (id: number) => {
-    return useQuery(["episode", id], async () => {
+const fetchEpisode = async (id: number) => {
+    try {
         const { data } = await apiClient.get(`/episode/${id}`);
         return data;
+    } catch (error) {
+        console.error(`Error fetching episode with ID ${id}:`, error);
+        throw new Error(`Failed to fetch episode with ID ${id}`);
+    }
+};
+
+export const useEpisode = (id: number) => {
+    return useQuery(["episode", id], () => fetchEpisode(id), {
+        enabled: !!id,
     });
 };
+
 
 export default apiClient;

@@ -44,9 +44,7 @@ const SingleCharacter: React.FC = () => {
         &larr; Back to Characters
       </Button>
 
-      <Row className="justify-content-center mb-4">
-        <h1 className="title-character-name text-center">{ characterData?.name }</h1>
-      </Row>
+      <h1 className="title-character-name text-center mb-4">{ characterData?.name }</h1>
 
       <Row className="justify-content-center">
         <Col lg={5} md={6} sm={12}>

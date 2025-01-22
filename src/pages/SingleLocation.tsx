@@ -32,7 +32,7 @@ const SingleLocation: React.FC = () => {
   return (
     <Container className="single-location-container">
 
-        <h1 className="title-location-name text-center">{location?.name || "Unknown Location"}</h1>
+        <h1 className="title-location-name text-center mb-4">{location?.name || "Unknown Location"}</h1>
 
         <div className="justify-content-center">
           <Card className="location-card">
