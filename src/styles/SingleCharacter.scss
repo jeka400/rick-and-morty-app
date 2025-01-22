@@ -1,0 +1,121 @@
+.single-character-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.back-button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #0dcaf0;
+    border: none;
+    transition: all 0.3s ease;
+  
+    &:hover {
+        background-color: #0dcaf0 !important;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #0dcaf0 !important;
+    }
+}
+  
+.character-name {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+  
+.character-card {
+    background-color: white;
+    border: none;
+    text-align: center;
+}
+  
+.character-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+.info-card {
+    background-color: #ffffff;
+    border: none;
+    padding: 20px;
+}
+  
+.location-button {
+    font-size: 1rem;
+    color: #0dcaf0;
+  
+    &:hover {
+        color: #000;
+    }
+}
+  
+.episodes-card {
+    background-color: #ffffff;
+    border: none;
+    padding: 20px;
+}
+  
+.episodes-title {
+    font-size: 1.2rem;
+    color: #333;
+}
+  
+.episodes-list {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+  
+    .episode-item {
+      padding: 10px 15px;
+    }
+  
+    .episode-button {
+        font-size: 1rem;
+        color: #0dcaf0 ;
+      
+        &:hover {
+          color: #000;
+        }
+    }
+}
+  
+@media (max-width: 991px) {
+    .character-name {
+        font-size: 2rem;
+    }
+  
+    .info-card, .episodes-card {
+        padding: 15px;
+    }
+  
+    .back-button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+  
+@media (max-width: 576px) {
+    .character-name {
+        font-size: 1.8rem;
+    }
+  
+    .character-image {
+        width: 80%;
+        margin: 0 auto;
+    }
+  
+    .back-button {
+        width: 100%;
+        text-align: center;
+    }
+}

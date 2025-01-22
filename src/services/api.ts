@@ -24,18 +24,16 @@ export const useCharacters = () => {
     );
 };
 
-export const useCharacter = (id: string | undefined) => {
-    return useQuery(["character", id], async () => {
-        if (!id) throw new Error("No ID provided");
+const fetchCharacter = async (id: string) => {
+    const response = await apiClient.get(`/character/${id}`);
+    return response.data;
+  };
 
-        const { data } = await apiClient.get(`/character/${id}`);
-        return data;
-      },
-      {
-        enabled: !!id,
-      }
-    );
-};
+export const useCharacter = (id: string) => {
+    return useQuery(["character", id], () => fetchCharacter(id), {
+      enabled: !!id,
+    });
+  };
 
 export const useLocation = (id: number) => {
     return useQuery(["location", id], async () => {

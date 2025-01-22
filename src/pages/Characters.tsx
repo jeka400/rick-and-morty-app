@@ -3,10 +3,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useCharacters } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { Container, Card, Form } from "react-bootstrap";
+import { FaSearch } from 'react-icons/fa';
+import "../styles/Characters.scss";
 
 const Characters: React.FC = () => {
     const [search, setSearch] = useState("");
+
     const navigate = useNavigate();
+    
     const {
         data,
         isLoading,
@@ -22,9 +26,9 @@ const Characters: React.FC = () => {
         if (!data) return [];
 
         return data.pages
-        .flatMap((page) => page.results)
-        .filter((character: any) =>
-            character.name.toLowerCase().includes(searchTerm.toLowerCase())
+            .flatMap((page) => page.results)
+            .filter((character: any) =>
+                character.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
     };
 
@@ -58,26 +62,23 @@ const Characters: React.FC = () => {
 
     return (
         <Container>
-            <div
-                style={{
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 1020,
-                    background: "#fff",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                }}
-            >
+            <div className="search-container">
+
                 <h1>Characters</h1>
-                <Form className="d-flex">
-                <Form.Control
-                    type="search"
-                    placeholder="Search characters..."
-                    className="me-2"
-                    aria-label="Search"
-                    value={ search }
-                    onChange={ (e) => setSearch(e.target.value) }
-                />
+
+                <Form className="form-search">
+                    <div className="search-icon">
+                        <FaSearch />
+                    </div>
+
+                    <Form.Control
+                        type="search"
+                        placeholder="Search characters..."
+                        className="me-2"
+                        aria-label="Search"
+                        value={ search }
+                        onChange={ (e) => setSearch(e.target.value) }
+                    />
                 </Form>
             </div>
 
@@ -93,40 +94,35 @@ const Characters: React.FC = () => {
                         <p className="text-center">
                             { noMoreCharactersMessage || "All characters loaded." }
                         </p>
-                )
+                    )
                 }
-                pullDownToRefresh={ true} 
+                pullDownToRefresh={ true } 
                 refreshFunction={ () => filterCharacters }
             >
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                    }}
-                >
-                { filteredCharacters.length === 0 ? (
-                    <p>No characters match your search.</p>
-                ) : (
-                    filteredCharacters.map((character: any) => (
 
-                    <Card
-                        style={{ width: "18rem", margin: "10px" }}
-                        key={ character.id }
-                        onClick={ () => handleCharacterClick(character.id)}
-                    >
-                        <Card.Img
-                            variant="top"
-                            src={ character.image }
-                            alt={ character.name }
-                        />
-                        <Card.Body>
-                            <Card.Title>{ character.name }</Card.Title>
-                            <Card.Text>Status: { character.status }</Card.Text>
-                        </Card.Body>
-                    </Card>
-                    ))
-                )}
+                <div className="characters-list-container">
+                    { filteredCharacters.length === 0 ? (
+                        <p>No characters match your search.</p>
+                    ) : (
+                        filteredCharacters.map((character: any) => (
+                            <Card
+                                className="character-card"
+                                key={ character.id }
+                                onClick={ () => handleCharacterClick(character.id)}
+                            >
+                                <Card.Img
+                                    variant="top"
+                                    src={ character.image }
+                                    alt={ character.name }
+                                />
+
+                                <Card.Body>
+                                    <Card.Title>{ character.name }</Card.Title>
+                                    <Card.Text>Status: { character.status }</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        ))
+                    )}
                 </div>
             </InfiniteScroll>
         </Container>

@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Characters from './pages/Characters';
+import SingleCharacter from './pages/SingleCharacter';
 
 const App: React.FC = () => {
   const queryClient = new QueryClient({
@@ -25,7 +26,7 @@ const App: React.FC = () => {
             <Route path='/login' element={ <Login /> } />
             <Route path='/signup' element={ <Signup />} />
             <Route path='/characters' element={ <Characters /> }/>
-            <Route path='/characters/:id' />
+            <Route path='/characters/:id' element={ <SingleCharacter /> } />
             <Route path='/location/:id' />
             <Route path='/episode/:id' />
           </Routes>
