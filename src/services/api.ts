@@ -6,6 +6,7 @@ const apiClient = axios.create({
     baseURL: "https://rickandmortyapi.com/api/",
 });
 
+
 const fetchCharacters = async ({ pageParam = 1 }) => {
     const { data } = await apiClient.get(`/character?page=${ pageParam }`);
     return data;
@@ -24,6 +25,7 @@ export const useCharacters = () => {
     );
 };
 
+
 const fetchCharacter = async (id: string) => {
     const response = await apiClient.get(`/character/${id}`);
     return response.data;
@@ -33,14 +35,31 @@ export const useCharacter = (id: string) => {
     return useQuery(["character", id], () => fetchCharacter(id), {
       enabled: !!id,
     });
-  };
+};
+
+
+const fetchLocation = async (id: number) => {
+    const { data } = await apiClient.get(`/location/${id}`);
+    return data;
+};
 
 export const useLocation = (id: number) => {
-    return useQuery(["location", id], async () => {
-        const { data } = await apiClient.get(`/location/${id}`);
-        return data;
-    });
+    return useQuery(["location", id], () => fetchLocation(id));
 };
+
+const fetchMultipleCharacters = async (ids: string[]) => {
+    const { data } = await apiClient.get(`/character/${ids.join(",")}`);
+    return data;
+};
+
+export const useCharactersByIds = (ids: string[]) => {
+    return useQuery(
+        ["characters", ids],
+        () => fetchMultipleCharacters(ids),
+        { enabled: ids.length > 0 }
+    );
+};
+
 
 export const useEpisode = (id: number) => {
     return useQuery(["episode", id], async () => {

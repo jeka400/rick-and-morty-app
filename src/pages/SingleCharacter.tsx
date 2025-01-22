@@ -22,9 +22,9 @@ const SingleCharacter: React.FC = () => {
   }, [data]);
 
   const handleLocationClick = () => {
-    if (location?.id) {
-      navigate(`/location/${location.id}`);
-    }
+      const locationUrl = location.url;
+      const locationId = locationUrl.split("/").pop();
+      navigate(`/location/${locationId}`);
   };
 
   const handleEpisodeClick = (episodeId: string) => {
@@ -45,12 +45,12 @@ const SingleCharacter: React.FC = () => {
       </Button>
 
       <Row className="justify-content-center mb-4">
-        <h1 className="character-name text-center">{ characterData?.name }</h1>
+        <h1 className="title-character-name text-center">{ characterData?.name }</h1>
       </Row>
 
       <Row className="justify-content-center">
         <Col lg={5} md={6} sm={12}>
-          <Card className="character-card">
+          <Card className="character-card-single">
             <Card.Img
               variant="top"
               src={ characterData?.image }
@@ -69,10 +69,11 @@ const SingleCharacter: React.FC = () => {
 
               <Card.Text><strong>Gender:</strong> { characterData?.gender }</Card.Text>
 
+              
               <Button 
                 variant="outline-info" 
-                onClick={ handleLocationClick } 
                 className="location-button mt-2"
+                onClick={ () => handleLocationClick() }
               >
                 <strong>Location:</strong> { location?.name || "Unknown Location" }
               </Button>

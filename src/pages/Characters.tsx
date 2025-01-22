@@ -57,14 +57,14 @@ const Characters: React.FC = () => {
         : null;
 
     const handleCharacterClick = (id: number) => {
-            navigate(`/characters/${id}`);
+        navigate(`/characters/${id}`);
     };
 
     return (
         <Container>
             <div className="search-container">
 
-                <h1>Characters</h1>
+                <h1 className="title-characters text-center">Characters</h1>
 
                 <Form className="form-search">
                     <div className="search-icon">
@@ -107,6 +107,7 @@ const Characters: React.FC = () => {
                         filteredCharacters.map((character: any) => (
                             <Card
                                 className="character-card"
+                                style={{ margin: "10px", width: "18rem"}}
                                 key={ character.id }
                                 onClick={ () => handleCharacterClick(character.id)}
                             >

@@ -25,9 +25,14 @@
     }
 }
   
-.character-name {
-    font-size: 2.5rem;
-    color: #333;
+.title-character-name {
+    font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    line-height: 1.2; 
+    color: #333; 
+    letter-spacing: 0.05em; 
+    text-transform: capitalize; 
     margin-bottom: 20px;
 }
   
@@ -35,6 +40,7 @@
     background-color: white;
     border: none;
     text-align: center;
+    width: 100%;
 }
   
 .character-image {
@@ -59,7 +65,7 @@
     }
 }
   
-.episodes-card {
+.episodes-card-single {
     background-color: #ffffff;
     border: none;
     padding: 20px;
