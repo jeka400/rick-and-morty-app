@@ -1,0 +1,41 @@
+@import 'variables';
+
+body {
+     background-color: $light-bg-color;
+     color: $text-color;
+}
+
+body.dark-mode{
+    background-color: $bg-color-dark-theme;
+    color: $dark-bg-color;
+
+    .search-container, 
+    .single-character-container, 
+    .card, 
+    .single-location-container, 
+    .single-episode-container,
+    .characters-list-container,
+    .character-card,
+    .characters-card {
+        background-color: $bg-color-dark-theme;
+
+    }
+    .card,
+    .card-body,
+    .list-group-item {
+        background-color: #01796f;
+    }
+
+    .title-characters,
+    .title-location-name,
+    .title-character-name,
+    .title-episode-name {
+        color: $dark-bg-color;
+        
+    }
+
+    .navbar-collapse.show {
+        background-color: $navbar-bg-color !important;
+    }
+}
+

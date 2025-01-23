@@ -1,0 +1,45 @@
+$header-height: 60px;
+$navbar-bg-color: #A8D4E9;
+$navbar-border-color: #bbb;
+$text-color: #333;
+$black-color: #000;
+$font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$font-weight-bold: 700;
+$font-weight-semi-bold: 600;
+$font-size-large: 2rem;
+$font-size-medium: 1.2rem;
+$font-size-small: 1rem;
+$title-letter-spacing: 0.05em;
+$light-bg-color: #fff;
+$dark-bg-color: #f9f9f9;
+$bg-color-dark-theme: #202020;
+$shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-strong: 0 4px 8px rgba(0, 0, 0, 0.2);
+$highlight-color: #0dcaf0;
+$search-icon-color: #96c1b0;
+$border-radius: 8px;
+
+@mixin transition($property, $duration, $easing) {
+  transition: $property $duration $easing;
+}
+
+@mixin font-setup($size, $weight, $line-height, $color, $letter-spacing) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+@mixin responsive-width($width, $breakpoints...) {
+  @each $breakpoint in $breakpoints {
+    @media (max-width: $breakpoint) {
+      width: $width;
+    }
+  }
+}
+  

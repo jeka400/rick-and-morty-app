@@ -1,26 +1,22 @@
+@import "variables";
+
 .single-episode-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  background: $dark-bg-color;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  @include box-shadow($shadow-strong);
   margin-top: 61px;
 }
 
 .title-episode-name {
-  font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #333;
-  letter-spacing: 0.05em;
+  @include font-setup(2.5rem, $font-weight-bold, 1.2, $text-color, $title-letter-spacing);
+  font-family: $font-family;
   text-transform: capitalize;
   margin-bottom: 20px;
 }
 
 .episode-card {
-  background-color: #f9f9f9 !important;
+  background-color: $dark-bg-color !important;
   border: none;
   text-align: center;
   width: 50%;
@@ -33,7 +29,7 @@
 }
   
 .characters-card {
-  background-color: #ffffff;
+  background-color: $light-bg-color;
   border: none;
 }
 

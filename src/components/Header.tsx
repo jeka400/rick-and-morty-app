@@ -6,10 +6,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import ToggleButtonTheme from "./ToggleButtonTheme";
 
 const Header: React.FC = () => {
-  const { user, setUser, logout } = useAuth();
-
+  const { user, setUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -35,7 +35,10 @@ const Header: React.FC = () => {
                       <Navbar.Text><Link to="/characters" id="navbar-link">Characters</Link></Navbar.Text>
 
                       <Navbar.Text onClick={handleLogout} id="navbar-link">Logout</Navbar.Text>
+
                   </Nav>
+
+                  <ToggleButtonTheme />
 
                 </Navbar.Collapse>
 

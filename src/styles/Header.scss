@@ -1,35 +1,49 @@
+@import "variables";
+
 #header-navbar {
-    height: 60px;
-    background-color: #A8D4E9 !important;
-    border-bottom: 1px solid #bbb;
+  height: $header-height;
+  background-color: $navbar-bg-color !important;
+  border-bottom: 1px solid $navbar-border-color;
 }
 
 .navbar-text {
-    padding-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 #navbar-link {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    letter-spacing: 0.05em; 
+  @include font-setup($font-size-medium, $font-weight-semi-bold, 1, $text-color, $title-letter-spacing);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: $font-family;
 }
 
 #navbar-brand {
-    font-weight: 700;
-    color: #333;
-    font-size: 2rem;
-    font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    letter-spacing: 0.05em; 
+  @include font-setup($font-size-large, $font-weight-bold, 1, $text-color, $title-letter-spacing);
+  font-family: $font-family;
 }
-
+  
 .navbar-collapse {
-    &.show {
-        background-color: #fff;
-        border-bottom: 1px solid #bbb;
-        padding-bottom: 20px;
+  justify-content: space-between !important;
+  width: 100% !important;
+  
+  &.show {
+    background-color: $light-bg-color;
+    border-bottom: 1px solid $navbar-border-color;
+    padding-bottom: 20px;
+    margin-top: 10px;
+
+    @media (max-width: 767px) {
+      text-align: center;
+
+
+    .navbar-nav {
+      margin-bottom: 1.5rem;
+
+      .nav-item {
+        justify-content: center;
+      }
     }
+
+    }
+  }
 }
