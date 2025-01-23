@@ -35,20 +35,13 @@ const SingleCharacter: React.FC = () => {
   if (isError) return <div className="error">Error loading character data.</div>;
 
   return (
-    <Container className="single-character-container mt-4">
-      <Button 
-        variant="outline-primary" 
-        className="back-button mb-3"
-        onClick={() => navigate("/characters")}
-      >
-        &larr; Back to Characters
-      </Button>
+    <Container className="single-character-container">
 
       <h1 className="title-character-name text-center mb-4">{ characterData?.name }</h1>
 
       <Row className="justify-content-center">
-        <Col lg={5} md={6} sm={12}>
-          <Card className="character-card-single">
+        <Col lg={5} md={12} >
+          <Card className="character-card-single character-card-image-container">
             <Card.Img
               variant="top"
               src={ characterData?.image }
@@ -58,7 +51,7 @@ const SingleCharacter: React.FC = () => {
           </Card>
         </Col>
 
-        <Col lg={7} md={6} sm={12}>
+        <Col lg={7} md={12}>
           <Card className="info-card mb-4">
             <Card.Body>
               <Card.Text><strong>Status:</strong> { characterData?.status }</Card.Text>

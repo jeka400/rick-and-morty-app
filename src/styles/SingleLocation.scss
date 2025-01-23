@@ -5,6 +5,7 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 61px;
 }
   
 .title-location-name {
@@ -35,7 +36,6 @@
 .characters-card {
   background-color: #ffffff;
   border: none;
-  padding: 20px;
 }
 
 .character-item {
@@ -55,21 +55,11 @@
   .location-name {
     font-size: 2rem;
   }
-
-  .back-button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
 }
 
 @media (max-width: 576px) {
   .location-name {
     font-size: 1.8rem;
-  }
-
-  .back-button {
-    width: 100%;
-    text-align: center;
   }
 }
   

@@ -8,6 +8,7 @@ import Characters from './pages/Characters';
 import SingleCharacter from './pages/SingleCharacter';
 import SingleLocation from './pages/SingleLocation';
 import SingleEpisode from './pages/SingleEpisode';
+import Header from './components/Header';
 
 interface IPrivateRouteProps  {
   children: React.ReactNode
@@ -32,8 +33,13 @@ const App: React.FC = () => {
 
   return (
     <AuthProvider>
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={ queryClient }>
         <Router>
+          
+          <PrivateRoute>
+            <Header />
+          </PrivateRoute>
+
           <Routes>
 
             <Route path='/login' element={ <Login /> } />

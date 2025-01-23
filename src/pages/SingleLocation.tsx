@@ -42,7 +42,7 @@ const SingleLocation: React.FC = () => {
             </Card.Body>
           </Card>
 
-          <div className="characters-card">
+          <div className="characters-card mt-4">
             <p className="text-center"><strong>Residents:</strong></p>
 
             <div className="characters-list-container">

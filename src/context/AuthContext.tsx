@@ -8,20 +8,26 @@ interface IAuthContextProps {
 interface IAuthContextType {
     user: User | null;
     setUser: React.Dispatch<React.SetStateAction<User | null>>;
+    logout: () => void;
   }
   
 const defaultContext: IAuthContextType = {
     user: null,
     setUser: () => {}, 
+    logout: () => {},
 };
 
 const AuthContext = createContext<IAuthContextType>(defaultContext);
 
 export const AuthProvider: React.FC<IAuthContextProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
+
+    const logout = () => {
+        setUser(null); 
+    };
     
     return (
-        <AuthContext.Provider value={{ user, setUser }}>
+        <AuthContext.Provider value={{ user, setUser, logout }}>
             { children }
         </AuthContext.Provider>
     )

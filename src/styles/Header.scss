@@ -1,0 +1,35 @@
+#header-navbar {
+    height: 60px;
+    background-color: #A8D4E9 !important;
+    border-bottom: 1px solid #bbb;
+}
+
+.navbar-text {
+    padding-bottom: 0 !important;
+}
+
+#navbar-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.05em; 
+}
+
+#navbar-brand {
+    font-weight: 700;
+    color: #333;
+    font-size: 2rem;
+    font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.05em; 
+}
+
+.navbar-collapse {
+    &.show {
+        background-color: #fff;
+        border-bottom: 1px solid #bbb;
+        padding-bottom: 20px;
+    }
+}
