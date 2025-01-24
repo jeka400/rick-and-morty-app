@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Rick and Morty App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React application that allows users to explore the 
+characters, locations, and episodes from the popular TV series "Rick and Morty". 
+This app leverages **React**, **TypeScript**, **Axios** for data fetching, 
+**React Query** for state management, 
+and **React Bootstrap** for styling. 
+Additionally, it supports a **dark mode** feature for improved user experience.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Character Search:** View detailed information about characters from the show.
+- **Location Search:** Explore the different locations featured in the show.
+- **Episode Details:** Get information about individual episodes.
+- **Pagination:** Browse through multiple pages of characters, locations, and episodes.
+- **Mobile Friendly:** The app is responsive and works well on mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React**: JavaScript library for building user interfaces.
+- **TypeScript**: For static type checking.
+- **React Query**: A data-fetching library to manage and sync server state.
+- **Axios**: A promise-based HTTP client for making requests.
+- **React Bootstrap**: A UI framework for building responsive and stylish components.
+- **Prettier**: A code formatter for maintaining consistent code style.
+- **ESLint**: A linting tool for identifying and fixing problems in the code.
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with this project, follow these steps:
 
-### `npm run build`
+### 1. Clone the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/jeka400/rick-and-morty-app.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd rick-and-morty-app
+npm install
+```
 
-### `npm run eject`
+### 3. Setup environment variables
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create a `.env` file in the root directory of the project and add any necessary environment variables.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Example `.env` content:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```env
+REACT_APP_API_URL=https://rickandmortyapi.com/api/
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. Run the app
 
-## Learn More
+Once all dependencies are installed and environment variables are set up, start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will run the app locally at [http://localhost:3000](http://localhost:3000).
