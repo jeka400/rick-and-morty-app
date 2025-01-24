@@ -69,17 +69,3 @@ npm start
 ```
 
 This will run the app locally at [http://localhost:3000](http://localhost:3000).
-
-## Note:
-I am fully aware that environment variables should not be made publicly accessible. However, since this is a task I received from your company, and the Git repository is private and shared only with you for review, I am including the environment variables below for your convenience. You can copy them directly if needed.
-
-```
-REACT_APP_API_URL=https://rickandmortyapi.com/api/
-REACT_APP_FIREBASE_API_KEY=AIzaSyD8ZZb5TXEo6Qscj4ki8E5MKgS9MOXZSuo
-REACT_APP_FIREBASE_AUTH_DOMAIN=shindiri-test.firebaseapp.com
-REACT_APP_FIREBASE_PROJECT_ID=shindiri-test
-REACT_APP_FIREBASE_STORAGE_BUCKET=shindiri-test.appspot.com
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=52617965392
-REACT_APP_FIREBASE_APP_ID=1:52617965392:web:fc3ff399c4d2e6db6e4655
-REACT_APP_FIREBASE_MEASUREMENT_ID=G-CBB903KCR9
-```
