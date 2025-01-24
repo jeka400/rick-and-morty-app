@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .single-location-container {
   max-width: 1200px;
@@ -9,18 +9,18 @@
   box-shadow: $shadow-light;
   margin-top: 61px;
 }
-  
+
 .title-location-name {
   font-family: $font-family;
-  font-size: 2.5rem; 
-  font-weight: 700; 
-  line-height: 1.2; 
-  color: $text-color; 
-  letter-spacing: 0.05em; 
-  text-transform: capitalize; 
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-color;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
   margin-bottom: 20px;
 }
-  
+
 .location-card {
   background-color: $dark-bg-color !important;
   border: none;
@@ -52,7 +52,7 @@
     color: $black-color;
   }
 }
-  
+
 @media (max-width: 991px) {
   .location-name {
     font-size: 2rem;
@@ -64,4 +64,3 @@
     font-size: 1.8rem;
   }
 }
-  

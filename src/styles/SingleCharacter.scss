@@ -1,125 +1,126 @@
-@import "variables";
+@import 'variables';
 
 .single-character-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: $light-bg-color;
-    border-radius: $border-radius;
-    box-shadow: $shadow-light;
-    margin-top: $header-height;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $light-bg-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow-light;
+  margin-top: $header-height;
 }
 
 .title-character-name {
-    font-family: $font-family;
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: $text-color;
-    letter-spacing: 0.05em;
-    text-transform: capitalize;
-    margin-bottom: 20px;
+  font-family: $font-family;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-color;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  margin-bottom: 20px;
 }
 
 .character-card {
-    background-color: $light-bg-color;
-    border: none;
-    text-align: center;
-    width: 100%;
+  background-color: $light-bg-color;
+  border: none;
+  text-align: center;
+  width: 100%;
 }
 
 .character-image {
-    width: 100%;
-    height: auto;
-    border-radius: $border-radius;
-    box-shadow: $shadow-strong;
+  width: 100%;
+  height: auto;
+  border-radius: $border-radius;
+  box-shadow: $shadow-strong;
 }
 
 .info-card {
-    background-color: $light-bg-color;
-    border: none;
-    padding: 20px;
+  background-color: $light-bg-color;
+  border: none;
+  padding: 20px;
 
-    .card-body {
-        padding: 10px;
-    }
+  .card-body {
+    padding: 10px;
+  }
 }
 
 .location-button {
-    font-size: 1rem;
-    color: $highlight-color;
+  font-size: 1rem;
+  color: $highlight-color;
 
-    &:hover {
-        color: $black-color;
-    }
+  &:hover {
+    color: $black-color;
+  }
 }
 
 .episodes-card-single {
-    background-color: $light-bg-color;
-    border: none;
-    padding: 20px;
+  background-color: $light-bg-color;
+  border: none;
+  padding: 20px;
 }
 
 .episodes-card {
-    .episodes-title {
-        font-size: 1.2rem;
-        color: $text-color;
-        padding: 10px 30px;
+  .episodes-title {
+    font-size: 1.2rem;
+    color: $text-color;
+    padding: 10px 30px;
+  }
+
+  .episodes-list {
+    max-height: 215px;
+    overflow-y: auto;
+    padding: 10px;
+
+    .episode-item {
+      padding: 10px;
     }
 
-    .episodes-list {
-        max-height: 215px;
-        overflow-y: auto;
-        padding: 10px;
+    .episode-button {
+      font-size: 1rem;
+      color: $highlight-color;
 
-        .episode-item {
-            padding: 10px;
-        }
-
-        .episode-button {
-            font-size: 1rem;
-            color: $highlight-color;
-
-            &:hover {
-                color: $black-color;
-            }
-        }
+      &:hover {
+        color: $black-color;
+      }
     }
+  }
 }
 
 @media (max-width: 991px) {
-    .character-name {
-        font-size: 2rem;
+  .character-name {
+    font-size: 2rem;
+  }
+
+  .info-card,
+  .episodes-card {
+    padding: 15px;
+  }
+
+  .character-card-image-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .episodes-list {
+    max-height: fit-content;
+
+    .card-header {
+      padding: 10px;
     }
 
-    .info-card, .episodes-card {
-        padding: 15px;
+    .episode-item {
+      padding: 10px 0;
     }
-
-    .character-card-image-container {
-        margin-bottom: 1.5rem;
-    }
-
-    .episodes-list {
-        max-height: fit-content;
-
-        .card-header {
-            padding: 10px;
-        }
-
-        .episode-item {
-            padding: 10px 0;
-        }
-    }
+  }
 }
 
 @media (max-width: 576px) {
-    .character-name {
-        font-size: 1.8rem;
-    }
+  .character-name {
+    font-size: 1.8rem;
+  }
 
-    .character-image {
-        width: 80%;
-        margin: 0 auto;
-    }
+  .character-image {
+    width: 80%;
+    margin: 0 auto;
+  }
 }

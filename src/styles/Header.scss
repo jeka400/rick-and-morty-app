@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 #header-navbar {
   height: $header-height;
@@ -11,21 +11,33 @@
 }
 
 #navbar-link {
-  @include font-setup($font-size-medium, $font-weight-semi-bold, 1, $text-color, $title-letter-spacing);
+  @include font-setup(
+    $font-size-medium,
+    $font-weight-semi-bold,
+    1,
+    $text-color,
+    $title-letter-spacing
+  );
   text-decoration: none;
   text-transform: uppercase;
   font-family: $font-family;
 }
 
 #navbar-brand {
-  @include font-setup($font-size-large, $font-weight-bold, 1, $text-color, $title-letter-spacing);
+  @include font-setup(
+    $font-size-large,
+    $font-weight-bold,
+    1,
+    $text-color,
+    $title-letter-spacing
+  );
   font-family: $font-family;
 }
-  
+
 .navbar-collapse {
   justify-content: space-between !important;
   width: 100% !important;
-  
+
   &.show {
     background-color: $light-bg-color;
     border-bottom: 1px solid $navbar-border-color;
@@ -35,15 +47,13 @@
     @media (max-width: 767px) {
       text-align: center;
 
+      .navbar-nav {
+        margin-bottom: 1.5rem;
 
-    .navbar-nav {
-      margin-bottom: 1.5rem;
-
-      .nav-item {
-        justify-content: center;
+        .nav-item {
+          justify-content: center;
+        }
       }
-    }
-
     }
   }
 }

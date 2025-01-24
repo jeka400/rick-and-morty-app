@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .characters-container {
   margin-top: $header-height + 1px;
@@ -14,7 +14,13 @@
   margin-bottom: 10px;
 
   .title-characters {
-    @include font-setup(2.5rem, $font-weight-bold, 1.2, $text-color, $title-letter-spacing);
+    @include font-setup(
+      2.5rem,
+      $font-weight-bold,
+      1.2,
+      $text-color,
+      $title-letter-spacing
+    );
     text-transform: capitalize;
     margin-bottom: 20px;
   }

@@ -14,8 +14,7 @@ const AppRoutes: React.FC = () => {
 
   return (
     <Routes>
-
-      { !user && (
+      {!user && (
         <>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -23,7 +22,7 @@ const AppRoutes: React.FC = () => {
         </>
       )}
 
-      { user && (
+      {user && (
         <Route element={<MainLayout />}>
           <Route path="/characters" element={<Characters />} />
           <Route path="/characters/:id" element={<SingleCharacter />} />
@@ -32,7 +31,6 @@ const AppRoutes: React.FC = () => {
           <Route path="*" element={<Navigate to="/characters" />} />
         </Route>
       )}
-      
     </Routes>
   );
 };

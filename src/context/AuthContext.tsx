@@ -15,7 +15,9 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [user, setUser] = useState<DecodedTokenPayload | null>(null);
 
   const navigate = useNavigate();
@@ -37,7 +39,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           navigate('/login');
         }
       }
-    } else if (location.pathname !== '/login' && location.pathname !== '/signup') {
+    } else if (
+      location.pathname !== '/login' &&
+      location.pathname !== '/signup'
+    ) {
       navigate('/login');
     }
   }, [location.pathname, navigate]);
@@ -62,7 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
-      { children }
+      {children}
     </AuthContext.Provider>
   );
 };

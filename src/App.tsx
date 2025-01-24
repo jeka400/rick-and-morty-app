@@ -16,7 +16,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <QueryClientProvider client={ queryClient }>
+    <QueryClientProvider client={queryClient}>
       <Router>
         <AuthProvider>
           <AppRoutes />

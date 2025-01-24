@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .single-episode-container {
   background: $dark-bg-color;
@@ -9,7 +9,13 @@
 }
 
 .title-episode-name {
-  @include font-setup(2.5rem, $font-weight-bold, 1.2, $text-color, $title-letter-spacing);
+  @include font-setup(
+    2.5rem,
+    $font-weight-bold,
+    1.2,
+    $text-color,
+    $title-letter-spacing
+  );
   font-family: $font-family;
   text-transform: capitalize;
   margin-bottom: 20px;
@@ -27,7 +33,7 @@
     width: 100%;
   }
 }
-  
+
 .characters-card {
   background-color: $light-bg-color;
   border: none;
@@ -50,7 +56,8 @@
   }
 }
 
-.loading, .error {
+.loading,
+.error {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 20px;
@@ -59,5 +66,5 @@
 @media (max-width: 576px) {
   .characters-list-container {
     justify-content: center !important;
-  } 
+  }
 }
