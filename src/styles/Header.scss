@@ -10,7 +10,7 @@
   padding-bottom: 0 !important;
 }
 
-#navbar-link {
+.navbar-link {
   @include font-setup(
     $font-size-medium,
     $font-weight-semi-bold,
@@ -23,6 +23,10 @@
   font-family: $font-family;
 }
 
+#navbar-link-logout{
+  cursor: pointer;
+}
+
 #navbar-brand {
   @include font-setup(
     $font-size-large,
@@ -32,6 +36,12 @@
     $title-letter-spacing
   );
   font-family: $font-family;
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .navbar-collapse {

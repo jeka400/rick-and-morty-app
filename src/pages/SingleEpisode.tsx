@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEpisode } from '../hooks/useEpisode';
 import { useCharactersByIds } from '../hooks/useCharactersByIds';
-import { Container, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import CharacterCard from '../components/CharacterCard';
+import InfoCard from '../components/InfoCard';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 import '../styles/SingleEpisode.scss';
 
 const SingleEpisode: React.FC = () => {
   const { id } = useParams();
-
   const navigate = useNavigate();
 
   const {
@@ -15,6 +18,7 @@ const SingleEpisode: React.FC = () => {
     isLoading: episodeLoading,
     isError: episodeError,
   } = useEpisode(Number(id));
+
   const [characterIds, setCharacterIds] = useState<string[]>([]);
   const {
     data: charactersData,
@@ -35,12 +39,9 @@ const SingleEpisode: React.FC = () => {
     navigate(`/characters/${id}`);
   };
 
-  if (episodeLoading || charactersLoading)
-    return <div className="loading">Loading...</div>;
-  if (episodeError)
-    return <div className="error">Error loading episode data.</div>;
-  if (charactersError)
-    return <div className="error">Error loading characters data.</div>;
+  if (episodeLoading || charactersLoading) return <Loading />;
+  if (episodeError) return <Error message="Error loading episode data." />;
+  if (charactersError) return <Error message="Error loading characters data." />;
 
   return (
     <Container className="single-episode-container">
@@ -49,17 +50,8 @@ const SingleEpisode: React.FC = () => {
       </h1>
 
       <div className="justify-content-center">
-        <Card className="episode-card">
-          <Card.Body>
-            <Card.Text>
-              <strong>Air Date:</strong> {episode?.air_date || 'Unknown'}
-            </Card.Text>
-
-            <Card.Text>
-              <strong>Episode:</strong> {episode?.episode || 'Unknown'}
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <InfoCard title="Air Date" info={episode?.air_date} />
+        <InfoCard title="Episode" info={episode?.episode} />
 
         <div className="characters-card">
           <p className="text-center">
@@ -68,24 +60,11 @@ const SingleEpisode: React.FC = () => {
 
           <div className="characters-list-container">
             {charactersData?.map((character: any) => (
-              <Card
-                className="character-card"
-                style={{ margin: '10px', width: '18rem' }}
+              <CharacterCard
                 key={character.id}
+                character={character}
                 onClick={() => handleCharacterClick(character.id)}
-              >
-                <Card.Img
-                  variant="top"
-                  src={character.image}
-                  alt={character.name}
-                />
-
-                <Card.Body>
-                  <Card.Title>{character.name}</Card.Title>
-
-                  <Card.Text>Status: {character.status}</Card.Text>
-                </Card.Body>
-              </Card>
+              />
             ))}
           </div>
         </div>

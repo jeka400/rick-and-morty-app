@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLocation } from '../hooks/useLocation';
 import { useCharactersByIds } from '../hooks/useCharactersByIds';
-import { Container, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import CharacterCard from '../components/CharacterCard';
+import InfoCard from '../components/InfoCard';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 import '../styles/SingleLocation.scss';
 
 const SingleLocation: React.FC = () => {
   const { id } = useParams();
-
   const navigate = useNavigate();
 
   const {
@@ -36,12 +39,9 @@ const SingleLocation: React.FC = () => {
     navigate(`/characters/${id}`);
   };
 
-  if (locationLoading || charactersLoading)
-    return <div className="loading">Loading...</div>;
-  if (locationError)
-    return <div className="error">Error loading location data.</div>;
-  if (charactersError)
-    return <div className="error">Error loading characters data.</div>;
+  if (locationLoading || charactersLoading) return <Loading />;
+  if (locationError) return <Error message="Error loading location data." />;
+  if (charactersError) return <Error message="Error loading characters data." />;
 
   return (
     <Container className="single-location-container">
@@ -50,16 +50,8 @@ const SingleLocation: React.FC = () => {
       </h1>
 
       <div className="justify-content-center">
-        <Card className="location-card">
-          <Card.Body>
-            <Card.Text>
-              <strong>Type:</strong> {location?.type || 'Unknown'}
-            </Card.Text>
-            <Card.Text>
-              <strong>Dimension:</strong> {location?.dimension || 'Unknown'}
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <InfoCard title="Type" info={location?.type} />
+        <InfoCard title="Dimension" info={location?.dimension} />
 
         <div className="characters-card mt-4">
           <p className="text-center">
@@ -68,23 +60,11 @@ const SingleLocation: React.FC = () => {
 
           <div className="characters-list-container">
             {charactersData?.map((character: any) => (
-              <Card
-                className="character-card"
-                style={{ margin: '10px', width: '18rem' }}
+              <CharacterCard
                 key={character.id}
+                character={character}
                 onClick={() => handleCharacterClick(character.id)}
-              >
-                <Card.Img
-                  variant="top"
-                  src={character.image}
-                  alt={character.name}
-                />
-
-                <Card.Body>
-                  <Card.Title>{character.name}</Card.Title>
-                  <Card.Text>Status: {character.status}</Card.Text>
-                </Card.Body>
-              </Card>
+              />
             ))}
           </div>
         </div>

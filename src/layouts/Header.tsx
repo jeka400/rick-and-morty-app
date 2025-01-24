@@ -18,19 +18,21 @@ const Header: React.FC = () => {
       fixed="top"
     >
       <Container>
-        <Navbar.Brand id="navbar-brand">Rick&Morty</Navbar.Brand>
+        <Navbar.Brand id="navbar-brand">
+          <Link to="/characters">Rick&Morty</Link>
+        </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto gap-4">
             <Navbar.Text>
-              <Link to="/characters" id="navbar-link">
+              <Link to="/characters" className="navbar-link" id="navbar-link-characters" >
                 Characters
               </Link>
             </Navbar.Text>
 
-            <Navbar.Text onClick={logout} id="navbar-link">
+            <Navbar.Text onClick={logout} className="navbar-link" id='navbar-link-logout'>
               Logout
             </Navbar.Text>
           </Nav>
