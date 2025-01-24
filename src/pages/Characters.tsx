@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useCharacters } from "../services/api";
+import { useCharacters } from "../hooks/useCharacters";
 import { useNavigate } from "react-router-dom";
 import { Container, Card, Form } from "react-bootstrap";
 import { FaSearch } from 'react-icons/fa';

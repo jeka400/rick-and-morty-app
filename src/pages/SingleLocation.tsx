@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useLocation, useCharactersByIds } from "../services/api";
+import { useLocation } from "../hooks/useLocation";
+import { useCharactersByIds } from "../hooks/useCharactersByIds";
 import { Container, Card } from "react-bootstrap";
 import "../styles/SingleLocation.scss";
 

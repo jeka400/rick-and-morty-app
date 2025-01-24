@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEpisode, useCharactersByIds } from "../services/api";
+import { useEpisode } from "../hooks/useEpisode";
+import { useCharactersByIds } from "../hooks/useCharactersByIds";
 import { Container, Card } from "react-bootstrap";
 import "../styles/SingleEpisode.scss";
 

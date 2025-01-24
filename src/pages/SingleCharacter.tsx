@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useCharacter } from "../services/api"; 
+import { useCharacter } from "../hooks/useCharacter"; 
 import { Container, Card, Row, Col, ListGroup, Button } from "react-bootstrap";
 import "../styles/SingleCharacter.scss";
 
