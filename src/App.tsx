@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from "react-query";
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -10,21 +10,11 @@ import SingleLocation from './pages/SingleLocation';
 import SingleEpisode from './pages/SingleEpisode';
 import Header from './components/Header';
 
-interface IPrivateRouteProps  {
-  children: React.ReactNode
-}
-
-const PrivateRoute: React.FC<IPrivateRouteProps> = ({ children }) => {
-  const { user } = useAuth();
-
-  return user ? children : <Link to="/login" />
-}
-
 const App: React.FC = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        refetchOnWindowFocus: false, 
+        refetchOnWindowFocus: false,
         retry: 2,
         staleTime: 1000 * 60 * 5,
       },
@@ -32,49 +22,42 @@ const App: React.FC = () => {
   });
 
   return (
-    <AuthProvider>
-      <QueryClientProvider client={ queryClient }>
-        <Router>
-          
-          <PrivateRoute>
-            <Header />
-          </PrivateRoute>
-
-          <Routes>
-
-            <Route path='/login' element={ <Login /> } />
-
-            <Route path='/signup' element={ <Signup />} />
-
-            <Route path='/characters' element={
-              <PrivateRoute>
-                <Characters />
-              </PrivateRoute> 
-            }/>
-
-            <Route path='/characters/:id' element={ 
-              <PrivateRoute>
-                <SingleCharacter /> 
-              </PrivateRoute> 
-            } />
-
-            <Route path='/location/:id' element={ 
-              <PrivateRoute>
-                <SingleLocation /> 
-              </PrivateRoute> 
-            } />
-
-            <Route path='/episode/:id' element={ 
-              <PrivateRoute>
-                <SingleEpisode /> 
-              </PrivateRoute>
-            } />
-
-          </Routes>
-        </Router>
-      </QueryClientProvider>
-    </AuthProvider>
+    <QueryClientProvider client={ queryClient }>
+      <Router>
+        <AuthProvider>
+          <MainApp />
+        </AuthProvider>
+      </Router>
+    </QueryClientProvider>
   );
-}
+};
+
+const MainApp: React.FC = () => {
+  const { user } = useAuth();
+
+  return (
+    <>
+      { user && <Header /> }
+
+      <Routes>
+        { user ? (
+          <>
+            <Route path="/characters" element={ <Characters /> } />
+            <Route path="/characters/:id" element={ <SingleCharacter /> } />
+            <Route path="/location/:id" element={ <SingleLocation /> } />
+            <Route path="/episode/:id" element={ <SingleEpisode /> } />
+            <Route path="*" element={ <Navigate to="/characters" /> } />
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={ <Login /> } />
+            <Route path="/signup" element={ <Signup /> } />
+            <Route path="*" element={ <Navigate to="/login" /> } />
+          </>
+        )}
+      </Routes>
+    </>
+  );
+};
 
 export default App;
