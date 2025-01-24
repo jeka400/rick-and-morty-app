@@ -50,7 +50,14 @@ Create a `.env` file in the root directory of the project and add any necessary 
 Example `.env` content:
 
 ```env
-REACT_APP_API_URL=https://rickandmortyapi.com/api/
+REACT_APP_API_URL=your_api_url_here
+REACT_APP_FIREBASE_API_KEY=your_firebase_api_key_here
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain_here
+REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id_here
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket_here
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id_here
+REACT_APP_FIREBASE_APP_ID=your_firebase_app_id_here
+REACT_APP_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id_here
 ```
 
 ### 4. Run the app
@@ -62,3 +69,15 @@ npm start
 ```
 
 This will run the app locally at [http://localhost:3000](http://localhost:3000).
+
+## Note:
+I am fully aware that environment variables should not be made publicly accessible. However, since this is a task I received from your company, and the Git repository is private and shared only with you for review, I am including the environment variables below for your convenience. You can copy them directly if needed.
+
+REACT_APP_API_URL=https://rickandmortyapi.com/api/
+REACT_APP_FIREBASE_API_KEY=AIzaSyD8ZZb5TXEo6Qscj4ki8E5MKgS9MOXZSuo
+REACT_APP_FIREBASE_AUTH_DOMAIN=shindiri-test.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=shindiri-test
+REACT_APP_FIREBASE_STORAGE_BUCKET=shindiri-test.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=52617965392
+REACT_APP_FIREBASE_APP_ID=1:52617965392:web:fc3ff399c4d2e6db6e4655
+REACT_APP_FIREBASE_MEASUREMENT_ID=G-CBB903KCR9
