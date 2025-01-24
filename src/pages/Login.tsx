@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { auth } from "../firebase";
+import { auth } from "../services/firebase";
 import { useAuth } from "../context/AuthContext";
 import { Container, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,7 +40,8 @@ const Login: React.FC = () => {
         <Container>
             <Form onSubmit={ handleSubmit }>
                 <h1 className="mt-4 text-center mb-4">Login</h1>
-                {error && <Alert variant="danger">{ error }</Alert>}
+
+                { error && <Alert variant="danger">{ error }</Alert> }
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

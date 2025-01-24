@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { auth } from "../firebase";
+import { auth } from "../services/firebase";
 import { useAuth } from "../context/AuthContext";
 import { Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
