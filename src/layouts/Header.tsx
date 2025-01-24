@@ -5,7 +5,7 @@ import "../styles/Header.scss";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import ToggleButtonTheme from "./ToggleButtonTheme";
+import ToggleButtonTheme from "../components/ToggleButtonTheme";
 
 const Header: React.FC = () => {
   const { logout } = useAuth();
