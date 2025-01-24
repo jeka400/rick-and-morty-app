@@ -1,4 +1,4 @@
-import apiClient from '../client';
+import apiClient from '../rmApi';
 
 const fetchCharacters = async ({ pageParam = 1 }) => {
   const { data } = await apiClient.get(`/character?page=${pageParam}`);

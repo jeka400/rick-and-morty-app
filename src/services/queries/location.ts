@@ -1,4 +1,4 @@
-import apiClient from '../client';
+import apiClient from '../rmApi';
 
 const fetchLocation = async (id: number) => {
   const { data } = await apiClient.get(`/location/${id}`);
